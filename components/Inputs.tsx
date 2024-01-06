@@ -24,7 +24,13 @@ const Inputs = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    reset,
+  } = useForm({
+    defaultValues: {
+      url: "",
+      expire: false,
+    },
+  });
 
   const buttonStyles = classNames(
     "cursor-pointer hover:scale-125 transition-all",
@@ -43,6 +49,7 @@ const Inputs = () => {
     })
       .then((res) => {
         setResponse(res.data.response.data);
+        reset();
       })
       .catch((err) => setResponse({ error: 1 }))
       .finally(() => setIsLoading(false));
