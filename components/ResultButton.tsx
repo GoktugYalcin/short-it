@@ -18,7 +18,7 @@ const ResultButton: React.FC<{ data: Res }> = ({ data }) =>
           "bg-slate-100 border-r-2 pr-2 border-r-slate-300 text-slate-900"
         }
       />
-      <CopyIcon />
+      <CopyIcon color={"#04090B"} />
     </motion.span>
   );
 

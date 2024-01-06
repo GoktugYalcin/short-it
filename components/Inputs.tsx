@@ -29,7 +29,7 @@ const Inputs = () => {
   const buttonStyles = classNames(
     "cursor-pointer hover:scale-125 transition-all",
     {
-      "animate-bounce": isLoading,
+      "animate-bounce pointer-events-none": isLoading,
     },
   );
 
@@ -64,7 +64,12 @@ const Inputs = () => {
           className="h-full w-full outline-0 text-slate-900"
         />
         <button className="p-0 outline-0 border-0" type="submit">
-          <ArrowRightIcon width={30} height={30} className={buttonStyles} />
+          <ArrowRightIcon
+            width={30}
+            height={30}
+            className={buttonStyles}
+            color={"#04090B"}
+          />
         </button>
       </span>
       <div className="flex justify-center items-center w-full">
