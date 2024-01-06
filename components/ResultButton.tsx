@@ -22,8 +22,12 @@ const ResultButton: React.FC<{ data: Res }> = ({ data }) =>
       />
       <CopyIcon
         color={"#04090B"}
-        onClick={() => navigator.clipboard.writeText(data?.hashed_url)}
-        className="active:translate-y-1 active:text-gray-300"
+        onClick={() =>
+          navigator.clipboard.writeText(
+            `https://short.gokyalc.in/h/${data?.hashed_url}`,
+          )
+        }
+        className="active:translate-y-1 active:text-gray-300 cursor-pointer"
       />
     </motion.span>
   );
