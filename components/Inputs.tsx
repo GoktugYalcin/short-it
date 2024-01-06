@@ -61,7 +61,7 @@ const Inputs = () => {
             required: true,
             validate: (field) => checkPattern(field),
           })}
-          className="h-full w-full outline-0"
+          className="h-full w-full outline-0 text-slate-900"
         />
         <button className="p-0 outline-0 border-0" type="submit">
           <ArrowRightIcon width={30} height={30} className={buttonStyles} />
