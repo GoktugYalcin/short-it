@@ -15,7 +15,7 @@ const CheckBox: React.FC<{ register: UseFormRegister<FieldValues> }> = ({
           <div className="transition"></div>
         </label>
       </div>
-      <span className="text-gray-400">Is expirable on day end?</span>
+      <span className="text-gray-400">Expire on tomorrow?</span>
     </div>
   );
 };
