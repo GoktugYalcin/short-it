@@ -7,7 +7,7 @@ export type Res = {
 };
 
 export type ResContent = {
-  error?: PostgrestError;
+  error?: PostgrestError & { hashed_url: string };
   data?: Res;
 };
 
