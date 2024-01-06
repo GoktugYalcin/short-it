@@ -16,6 +16,7 @@ export default async function Index() {
       createClient(cookieStore);
       return true;
     } catch (e) {
+      console.error(e);
       return false;
     }
   };
