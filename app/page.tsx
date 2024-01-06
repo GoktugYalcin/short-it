@@ -5,15 +5,13 @@ import ConnectSupabaseSteps from "@/components/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/SignUpUserSteps";
 import Header from "@/components/Header";
 import { cookies } from "next/headers";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import CheckBox from "@/app/checkbox";
+import { VercelLogoIcon } from "@radix-ui/react-icons";
+import Inputs from "@/components/Inputs";
 
 export default async function Index() {
   const cookieStore = cookies();
 
   const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
     try {
       createClient(cookieStore);
       return true;
@@ -47,22 +45,11 @@ export default async function Index() {
             Also shortlist of your shortened links is on development!
           </h1>
         </div>
-        <div className="flex justify-center items-center mt-32 w-full flex-col gap-10">
-          <span className="flex h-16 w-1/3 justify-between items-center py-1 px-3 gap-3 bg-white rounded-md text-3xl">
-            <input type="text" className="h-full w-full outline-0" />
-            <ArrowRightIcon
-              width={30}
-              height={30}
-              className="cursor-pointer transform hover:scale-125 transition-transform"
-            />
-          </span>
-          <div className="flex justify-center items-center w-full">
-            <CheckBox />
-          </div>
-        </div>
+        <Inputs />
       </div>
-      <footer className="absolute bottom-3 text-gray-400 w-3/4 pt-4 border-t-gray-700 border-t-2 flex justify-center items-center">
-        {new Date().getFullYear()} - A. Göktuğ Yalçın
+      <footer className="fixed bottom-3 text-gray-400 w-3/4 pt-4 border-t-gray-700 border-t-2 flex justify-center items-center text-sm gap-2">
+        {new Date().getFullYear()} - A. Göktuğ Yalçın{" "}
+        <VercelLogoIcon color={"#fafafa"} />
       </footer>
     </div>
   );
