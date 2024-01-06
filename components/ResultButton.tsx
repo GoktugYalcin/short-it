@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import { Res } from "@/types";
 import { CopyIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
 const ResultButton: React.FC<{ data: Res }> = ({ data }) =>
-  data.hashed_url && (
+  data?.hashed_url && (
     <motion.span
       initial={{ opacity: 0 }}
       animate={{ opacity: 100 }}
@@ -18,7 +20,11 @@ const ResultButton: React.FC<{ data: Res }> = ({ data }) =>
           "bg-slate-100 border-r-2 pr-2 border-r-slate-300 text-slate-900"
         }
       />
-      <CopyIcon color={"#04090B"} />
+      <CopyIcon
+        color={"#04090B"}
+        onClick={() => navigator.clipboard.writeText(data?.hashed_url)}
+        className="active:translate-y-1 active:text-gray-300"
+      />
     </motion.span>
   );
 
