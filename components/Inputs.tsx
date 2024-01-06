@@ -28,7 +28,7 @@ const Inputs = () => {
   } = useForm();
 
   const buttonStyles = classNames(
-    "cursor-pointer hover:scale-125 transition-all",
+    "cursor-pointer active:translate-y-0.5 transition-all",
     {
       "animate-bounce pointer-events-none": isLoading,
     },

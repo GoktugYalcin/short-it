@@ -25,7 +25,10 @@ export async function POST(req: NextRequest) {
   const response: ResContent = {};
 
   error
-    ? (response.error = error)
+    ? (response.error = {
+        ...error,
+        hashed_url: "",
+      })
     : (response.data = {
         is_expirable: data.is_expirable,
         hashed_url: data.hashed_url,

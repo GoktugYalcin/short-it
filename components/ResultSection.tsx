@@ -12,7 +12,7 @@ const ResultSection: React.FC<{
   errors: FieldErrors<FieldValues>;
 }> = ({ response, errors }) => (
   <AnimatePresence>
-    {(response as Res).hashed_url && <ResultButton data={response as Res} />}
+    {(response as Res)?.hashed_url && <ResultButton data={response as Res} />}
     {!!errors.url && (
       <ErrorComponent
         message={
@@ -21,12 +21,10 @@ const ResultSection: React.FC<{
             Please give a proper url!
           </>
         }
-        color={"red"}
       />
     )}
-    {response.error && (
+    {response?.error && (
       <ErrorComponent
-        color="red"
         message={
           <>
             <CrossCircledIcon height={30} width={30} />
