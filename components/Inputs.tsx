@@ -1,19 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  ArrowRightIcon,
-  CopyIcon,
-  Cross2Icon,
-  CrossCircledIcon,
-} from "@radix-ui/react-icons";
-import CheckBox from "@/components/checkbox";
-import { checkPattern } from "@/utils/UrlPattern";
+
 import { FieldErrors, useForm } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
-import { AnimatePresence, motion } from "framer-motion";
 import axios from "axios";
 import classNames from "classnames";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+
+import CheckBox from "@/components/checkbox";
+import ResultSection from "@/components/ResultSection";
+
+import { checkPattern } from "@/utils/UrlPattern";
 import { Res } from "@/types";
 
 const Inputs = () => {
@@ -72,45 +70,7 @@ const Inputs = () => {
       <div className="flex justify-center items-center w-full">
         <CheckBox register={register} />
       </div>
-      <AnimatePresence>
-        {!!errors.url && (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
-            exit={{ opacity: 0 }}
-            className="flex justify-center items-center gap-2 text-bold text-red-500 text-2xl transition-opacity ease-in duration-700"
-          >
-            <Cross2Icon width={30} height={30} />
-            Please give a proper url!
-          </motion.span>
-        )}
-        {(response as Res)?.hashed_url?.length && (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
-            exit={{ opacity: 0 }}
-            className="flex justify-center items-center text-bold bg-slate-100 rounded p-4 px-6 gap-4 text-2xl transition-opacity ease-in duration-700"
-          >
-            <input
-              value={`short.gokyalc.in/${(response as Res).hashed_url}`}
-              readOnly={true}
-              className={"bg-slate-100 border-r-2 pr-2 border-r-slate-300"}
-            />
-            <CopyIcon />
-          </motion.span>
-        )}
-        {response.error && (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 100 }}
-            exit={{ opacity: 0 }}
-            className="flex justify-center items-center text-bold rounded p-4 px-6 gap-4 text-2xl text-red-500 transition-opacity ease-in duration-700"
-          >
-            <CrossCircledIcon height={30} width={30} />
-            An error occured.
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <ResultSection response={response} errors={errors} />
     </form>
   );
 };
