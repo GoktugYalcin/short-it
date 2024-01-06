@@ -17,7 +17,12 @@ export async function GET(request: Request) {
 
   if (links?.length) {
     const item = links[0] as StreamContent;
-    redirect(`https://${item.normal_url}`);
+    redirect(
+      item.normal_url.includes("https://") ||
+        item.normal_url.includes("https://")
+        ? item.normal_url
+        : `https://${item.normal_url}`,
+    );
   } else {
     return notFound();
   }
