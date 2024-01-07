@@ -1,5 +1,4 @@
 import React from "react";
-import { CrossCircledIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
 const ErrorComponent: React.FC<{

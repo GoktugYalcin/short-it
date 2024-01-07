@@ -1,9 +1,9 @@
-import AuthButton from "../components/AuthButton";
+import AuthButton from "../components/Buttons/AuthButton";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { VercelLogoIcon } from "@radix-ui/react-icons";
-import Inputs from "@/components/Inputs";
-import Headliners from "@/components/Headliners";
+import Inputs from "@/components/Sections/Inputs";
+import Headliners from "@/components/Sections/Headliners";
 
 export default async function Index() {
   const cookieStore = cookies();

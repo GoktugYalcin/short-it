@@ -9,8 +9,8 @@ import classNames from "classnames";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
-import CheckBox from "@/components/CheckBox";
-import ResultSection from "@/components/ResultSection";
+import CheckBox from "@/components/Buttons/CheckBox";
+import ResultSection from "@/components/Sections/ResultSection";
 
 import { checkPattern } from "@/utils/UrlPattern";
 import { Res } from "@/types";
@@ -74,10 +74,7 @@ const Inputs = () => {
         <input
           {...register("url", {
             required: true,
-            validate: (field) => {
-              const res = checkPattern(field);
-              return res;
-            },
+            validate: (field) => checkPattern(field),
           })}
           className="h-full w-full outline-0 text-slate-900"
         />

@@ -1,9 +1,9 @@
-import { createClient } from "@/utils/supabase/server";
+import React from "react";
 import Link from "next/link";
+
+import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import GoogleLogo from "@/components/GoogleLogo";
-import React from "react";
 
 export default async function AuthButton() {
   const cookiesStore = cookies();
@@ -19,7 +19,8 @@ export default async function AuthButton() {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
     await supabase.auth.signOut();
-    return redirect("/login");
+
+    return redirect("/");
   };
 
   return user ? (

@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     return notFound();
   }
 
-  let { data: links, error } = await supabase
+  let { data: links } = await supabase
     .from("links")
     .select("*")
     .eq("hashed_url", hashed);

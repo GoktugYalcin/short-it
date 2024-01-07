@@ -1,15 +1,14 @@
 import React from "react";
 import { Res } from "@/types";
-import ResultButton from "@/components/ResultButton";
-import ErrorComponent from "@/components/ErrorComponent";
+import ResultButton from "@/components/Buttons/ResultButton";
+import ErrorComponent from "@/components/Sections/ErrorComponent";
 import { Cross2Icon, CrossCircledIcon } from "@radix-ui/react-icons";
 import { AnimatePresence } from "framer-motion";
 import { FieldErrors } from "react-hook-form";
-import { FieldValues } from "react-hook-form/dist/types/fields";
 
 const ResultSection: React.FC<{
   response: Res | { error: number };
-  errors: FieldErrors<FieldValues>;
+  errors: FieldErrors;
 }> = ({ response, errors }) => (
   <AnimatePresence>
     {(response as Res)?.hashed_url && <ResultButton data={response as Res} />}

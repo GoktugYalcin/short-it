@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { UseFormRegister } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
 

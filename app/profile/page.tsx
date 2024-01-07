@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/Buttons/BackButton";
 
 export default async function Profile() {
   const cookieStore = cookies();
@@ -12,12 +12,11 @@ export default async function Profile() {
 
   const {
     data: { user },
-    error: userError,
   } = await supabase.auth.getUser();
 
   if (!user) notFound();
 
-  let { data: links, error } = await supabase
+  let { data: links } = await supabase
     .from("links")
     .select("*")
     .eq("mail", user?.email);
