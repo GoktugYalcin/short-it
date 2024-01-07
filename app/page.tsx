@@ -31,7 +31,7 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 bg-[#27272a] h-16">
         <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          <span className="font-bold text-xl text-[#a1a1aa] select-none">
+          <span className="font-bold text-xl text-transparent bg-gradient-to-br from-teal-300 to-blue-500 bg-clip-text select-none">
             Short-it
           </span>
           {isSupabaseConnected && <AuthButton />}

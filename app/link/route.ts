@@ -1,20 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
-import { createClient } from "@/utils/supabase/client";
-import { PostgrestError } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/server";
 import { ResContent, StreamContent } from "@/types";
+import { cookies } from "next/headers";
 
 export async function POST(req: NextRequest) {
   const postData = await req.json();
-  const supabase = createClient();
+  const cookiesStore = cookies();
+  const supabase = createClient(cookiesStore);
+
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
 
   const request = await supabase
     .from("links")
     .insert([
       {
         hashed_url: randomUUID().split("-")[0],
-        normal_url: postData.url,
+        normal_url:
+          postData.url.includes("https://") || postData.url.includes("http://")
+            ? postData.url
+            : `https://${postData.url}`,
         is_expirable: postData.expire,
+        mail: user?.email || "",
       },
     ])
     .select();

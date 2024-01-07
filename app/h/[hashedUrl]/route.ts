@@ -1,9 +1,11 @@
-import { createClient } from "@/utils/supabase/client";
+import { createClient } from "@/utils/supabase/server";
 import { notFound, redirect } from "next/navigation";
 import { StreamContent } from "@/types";
+import { cookies } from "next/headers";
 
 export async function GET(request: Request) {
-  const supabase = createClient();
+  const cookiesStore = cookies();
+  const supabase = createClient(cookiesStore);
   const hashed = request.url.split("/h/")[1];
 
   if (!hashed) {
@@ -17,12 +19,7 @@ export async function GET(request: Request) {
 
   if (links?.length) {
     const item = links[0] as StreamContent;
-    redirect(
-      item.normal_url.includes("https://") ||
-        item.normal_url.includes("https://")
-        ? item.normal_url
-        : `https://${item.normal_url}`,
-    );
+    redirect(item.normal_url);
   } else {
     return notFound();
   }
