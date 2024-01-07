@@ -25,36 +25,34 @@ export default async function Profile() {
   return (
     <>
       <BackButton />
-      <div className="flex w-1/2 flex-col justify-start items-center min-h-[90vh] p-20 pt-12 mt-[5vh] bg-[#292929] rounded-xl">
-        <div className="text-3xl flex w-full text-slate-300 pb-12">
+      <div className="flex flex-col justify-start items-center bg-[#292929] rounded-xl lg:min-h-[90vh] sm:min-h-[100vh] lg:py-12 lg:mt-[5vh] sm:py-20 sm:mt-0 sm:px-4 lg:w-1/2 sm:w-full">
+        <div className="text-3xl flex w-full text-slate-300 pb-12 lg:pl-3">
           <span>{user.email}</span>
         </div>
         {links?.length ? (
           <div className="w-full">
-            <div className="w-full flex justify-between items-center font-bold text-xl text-[#bcbcbc]">
-              <span className="w-[40%]">URL</span>
-              <span className="w-[30%]">Created at</span>
-              <span className="w-[30%] flex justify-center items-center">
-                One-day Expire
-              </span>
+            <div className="w-full flex justify-between items-center font-bold lg:text-xl text-[#bcbcbc] sm:text-[15px]">
+              <span className="w-[30%] text-center">URL</span>
+              <span className="w-[30%] text-center">Created at</span>
+              <span className="w-[30%] text-center">One-day Expire</span>
             </div>
             {links.map((link) => {
               return (
                 <div
                   key={link.link_id}
-                  className="w-full flex justify-between items-center mt-2 text-[#797979] hover:text-slate-300 transition-colors"
+                  className="w-full flex justify-between items-center mt-4 text-[#797979] hover:text-slate-300 transition-colors"
                 >
                   <Link
                     href={link.normal_url}
                     target="_blank"
-                    className="w-[40%]"
+                    className="w-[30%] overflow-ellipsis overflow-hidden text-center"
                   >
                     {link.normal_url}
                   </Link>
-                  <span className="w-[30%]">
+                  <span className="w-[30%] overflow-ellipsis overflow-hidden text-center">
                     {new Date(link.created_at).toDateString()}
                   </span>
-                  <span className="w-[30%] flex justify-center items-center">
+                  <span className="w-[30%] flex justify-center items-center text-center">
                     {link.is_expirable ? (
                       <CheckIcon color="green" />
                     ) : (

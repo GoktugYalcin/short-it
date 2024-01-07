@@ -11,17 +11,17 @@ const ResultButton: React.FC<{ data: Res }> = ({ data }) =>
       initial={{ opacity: 0 }}
       animate={{ opacity: 100 }}
       exit={{ opacity: 0 }}
-      className="flex justify-center items-center text-bold bg-slate-100 rounded p-4 px-6 gap-4 text-2xl transition-opacity ease-in duration-700"
+      className="flex justify-between items-center text-bold bg-slate-100 rounded p-4 lg:px-4 sm:px-3 gap-4 text-xl transition-opacity ease-in duration-700 lg:w-2/6 sm:w-10/12"
     >
       <input
         value={`short.gokyalc.in/h/${(data as Res).hashed_url}`}
         readOnly={true}
-        className={
-          "bg-slate-100 border-r-2 pr-2 border-r-slate-300 text-slate-900"
-        }
+        className={"bg-slate-100 pr-2 text-slate-900 w-full"}
       />
       <CopyIcon
         color={"#04090B"}
+        height={25}
+        width={25}
         onClick={() =>
           navigator.clipboard.writeText(
             `https://short.gokyalc.in/h/${data?.hashed_url}`,

@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import { cookies } from "next/headers";
 import { VercelLogoIcon } from "@radix-ui/react-icons";
 import Inputs from "@/components/Inputs";
+import Headliners from "@/components/Headliners";
 
 export default async function Index() {
   const cookieStore = cookies();
@@ -38,14 +39,7 @@ export default async function Index() {
         </div>
       </nav>
       <div className="flex flex-col items-center justify-center w-full">
-        <div className="flex flex-col w-full justify-center items-center text-4xl">
-          <h1 className="bg-clip-text bg-gradient-to-r from-[#78716c] to-[#d6d3d1] text-transparent">
-            Shorten your links and add if you want to expiry!
-          </h1>
-          <h1 className="bg-clip-text bg-gradient-to-r from-[#57534e] to-[#a8a29e] text-transparent">
-            Also shortlist of your shortened links is on development!
-          </h1>
-        </div>
+        <Headliners />
         <Inputs />
       </div>
       <footer className="fixed bottom-3 text-gray-400 w-3/4 pt-4 border-t-gray-700 border-t-2 flex justify-center items-center text-sm gap-2">
