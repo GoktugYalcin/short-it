@@ -9,7 +9,7 @@ import classNames from "classnames";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
-import CheckBox from "@/components/checkbox";
+import CheckBox from "@/components/CheckBox";
 import ResultSection from "@/components/ResultSection";
 
 import { checkPattern } from "@/utils/UrlPattern";
