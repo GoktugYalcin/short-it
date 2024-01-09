@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 const ratelimit = new Ratelimit({
   redis: kv,
-  limiter: Ratelimit.slidingWindow(500, "6 h"),
+  limiter: Ratelimit.slidingWindow(5, "6 h"),
 });
 
 export async function middleware(request: NextRequest) {
