@@ -1,6 +1,6 @@
 # Short-It
-## A conventional link shortener.
-It provides a link shortening with __1-day expiry__.
+## Description
+A conventional link shortener. It provides a link shortening with __1-day expiry__.
 
 ## Tech Stack
 - Typescript
