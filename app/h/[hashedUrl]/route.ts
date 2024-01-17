@@ -19,7 +19,7 @@ export async function GET(request: Request) {
 
   if (links?.length) {
     const item = links[0] as StreamContent;
-    redirect(item.normal_url);
+    // Check if the URL starts with http:// or https://, if not, prepend https://\n    const urlWithSchema = /^https?:\/\/i.test(item.normal_url) ? item.normal_url : `https://${item.normal_url}`;\n    redirect(urlWithSchema);
   } else {
     return notFound();
   }
